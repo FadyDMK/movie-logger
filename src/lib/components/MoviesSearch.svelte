@@ -25,7 +25,7 @@
     .container {
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        position: relative;
     }
 
     .movie-line {
@@ -35,6 +35,7 @@
         border-radius: 3px;
         padding: 10px;
         box-shadow: 0 0 1px var(--accent-color);
+        cursor: pointer;
     }
 
     .movie-line img {

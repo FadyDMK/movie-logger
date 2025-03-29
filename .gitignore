@@ -9,7 +9,7 @@ public/build/
 # Production
 build/
 dist/
-
+structure.txt
 # Logs
 npm-debug.log*
 yarn-debug.log*

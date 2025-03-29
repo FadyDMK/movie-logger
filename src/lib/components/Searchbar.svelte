@@ -48,14 +48,15 @@
         on:input={handleSearch}
         placeholder="Search for a movie"
     />
-
-    {#if searching}
-        <div class="loading">Loading...</div>
-    {:else if movies.length > 0}
-        <MoviesSearch {movies} />
-    {:else}
-        <div class="no-movies">No movies found</div>
-    {/if}
+    <div class="result">
+        {#if searching}
+            <div class="loading">Loading...</div>
+        {:else if movies.length > 0}
+            <MoviesSearch {movies} />
+        {:else if movies.length === 0 && search}
+            <div class="no-movies">No movies found</div>
+        {/if}
+    </div>
 </div>
 
 <style lang="scss">
@@ -64,16 +65,29 @@
         flex-direction: column;
         padding-bottom: 0;
         width: 600px;
-        height: 400px;
-        
+        height: 800px;
+    }
+    .result {
+        height: 100%;
+        overflow-y: scroll;
+        display: none;
+    }
+
+    #search:focus + .result {
+        display: block;
     }
     #search {
         width: 100%;
         padding: 10px;
         font-size: 1.2rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--accent-color);
+        background-color: white;
+        color: black;
         border-radius: 5px;
-        overflow-y: scroll ;
+        overflow-y: scroll;
+    }
+    #search:focus {
+        border-color: var(--primary-color);
     }
 
     .loading {
@@ -81,7 +95,6 @@
         background-color: #1f1f1f;
         padding: 20px;
     }
-
 
     .no-movies {
         text-align: center;
