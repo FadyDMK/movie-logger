@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #810CA8;
+  --background-color: #0e0013;
+  --text-color: #ffffff;
+  --secondary-color: #C147E9;
+  --accent-color: #E5B8F4;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
