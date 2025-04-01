@@ -13,7 +13,7 @@
 
 <div class="container">
     <h1 class="title">Login To Your Account</h1>
-
+    <h3>Don't have an account? <a href="/auth/register">Click here!</a></h3>
     <form use:enhance method="POST" action="?/login">
         <div class="form-item">
             <label for="username">Username<sup><small>*</small></sup></label>

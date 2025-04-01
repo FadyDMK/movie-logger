@@ -8,6 +8,7 @@
 
 <div class="container">
   <h1 class="title">Create an account</h1>
+  <h3>Already have an account? <a href="/auth/login">Log in</a></h3>
 
   <form bind:this={thisForm} use:enhance method="POST" action="?/signup">
     <div class="form-item">

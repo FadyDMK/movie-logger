@@ -6,6 +6,7 @@ import { findUserByUsernameWithPassword, loginUser } from '$lib/utils/backendUti
 import bcrypt from 'bcrypt';
 import { SECRET_KEY } from '$env/static/private';
 import jwt from 'jsonwebtoken';
+import { isAuthed } from '$lib/stores/stores.ts';
 
 
 
@@ -47,10 +48,13 @@ export const actions = {
                 return fail(400, loginResponse);
             }
             if (authAttempt) {
+                
+
                 const { password, ...userAttemptingLoginWithoutPassword } = userAttemptingLogin;
                 const authToken = jwt.sign({ authedUser: userAttemptingLoginWithoutPassword }, SECRET_KEY,
                     { expiresIn: '24h' });
                 cookies.set('authToken', authToken, { httpOnly: true, maxAge: 60 * 60 * 24, sameSite: 'strict', path: '/' });
+                isAuthed.set(true);
                 return redirect(302, '/');
 
             }

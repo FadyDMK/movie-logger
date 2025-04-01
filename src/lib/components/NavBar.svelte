@@ -1,9 +1,17 @@
 <script lang="ts">
     import Searchbar from "./Searchbar.svelte";
     import logo from '/src/logo.png';
-    export let isAuthed:boolean;
+    import { isAuthed } from "$lib/stores/stores.ts";
+    import { goto } from "$app/navigation";
 
-    let data={
+    async function handleLogout() {
+        isAuthed.set(false);
+        await goto("/auth/logout");
+    }
+
+
+
+    $: data={
         logo: true,
         logoSrc: logo,
         logoLink: true,
@@ -18,13 +26,13 @@
             },
             {
                 url: '/log',
-                displayInNav: isAuthed,
+                displayInNav: $isAuthed,
                 linkText: 'Log'
             },
             {
                 text: 'profile',
                 url: '/profile',
-                displayInNav: isAuthed,
+                displayInNav: $isAuthed,
                 linkText: 'Profile'
             },
             {
@@ -34,22 +42,19 @@
             },
             {
                 url: '/auth/login',
-                displayInNav: !isAuthed,
+                displayInNav: !$isAuthed,
                 linkText: 'Log In'
             },
             {
                 url: '/auth/register',
-                displayInNav: !isAuthed,
+                displayInNav: !$isAuthed,
                 linkText: 'Sign Up'
-            },
-            {
-                url: '/auth/logout',
-                displayInNav: isAuthed,
-                linkText: 'Log Out'
             }
 
         ]
     };
+
+    console.log("isAuthed:", $isAuthed);
     let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
     let clicked = false;
 
@@ -109,13 +114,15 @@
             </div>
         {/if}
     {/each}
+    {#if $isAuthed}
+        <button class={clicked ? "navbar-item-clicked" : "navbar-item"} on:click={handleLogout}>Log Out</button>
+    {/if}
 </nav>
 
 <style lang="scss">
     button {
         background-color: rgb(255, 255, 255, 0);
     }
-    
     .navbar {
         position: fixed;
         top: 0;

@@ -1,6 +1,9 @@
-export const load = async ({ locals }) => {
+
+export const load = async ({ cookies }) => {
+    const authToken = cookies.get('authToken');
+    console.log('Server-side isAuthed:', !!authToken);
     return {
-        isAuthed: !!locals.user, 
-        user: locals.user || null, 
+        isAuthed: !!authToken // Return a boolean indicating if the user is authenticated
     };
 };
+
