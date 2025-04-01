@@ -55,7 +55,6 @@ declare module '$env/static/private' {
 	export const GSETTINGS_SCHEMA_DIR: string;
 	export const LOGNAME: string;
 	export const XDG_SESSION_DESKTOP: string;
-	export const QT_QPA_PLATFORMTHEME: string;
 	export const XDG_SESSION_TYPE: string;
 	export const CONDA_PREFIX: string;
 	export const npm_config_init_module: string;
@@ -65,10 +64,8 @@ declare module '$env/static/private' {
 	export const XAUTHORITY: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const GJS_DEBUG_TOPICS: string;
-	export const WINDOWPATH: string;
 	export const MOTD_SHOWN: string;
 	export const GDM_LANG: string;
-	export const GTK2_RC_FILES: string;
 	export const HOME: string;
 	export const USERNAME: string;
 	export const LANG: string;
@@ -77,6 +74,7 @@ declare module '$env/static/private' {
 	export const XDG_CURRENT_DESKTOP: string;
 	export const npm_package_version: string;
 	export const MEMORY_PRESSURE_WATCH: string;
+	export const WAYLAND_DISPLAY: string;
 	export const CONDA_PROMPT_MODIFIER: string;
 	export const GIT_ASKPASS: string;
 	export const INVOCATION_ID: string;
@@ -86,6 +84,7 @@ declare module '$env/static/private' {
 	export const npm_lifecycle_script: string;
 	export const GJS_DEBUG_OUTPUT: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+	export const GNOME_SETUP_DISPLAY: string;
 	export const npm_config_npm_version: string;
 	export const XDG_SESSION_CLASS: string;
 	export const LC_IDENTIFICATION: string;
@@ -113,9 +112,7 @@ declare module '$env/static/private' {
 	export const npm_package_json: string;
 	export const LC_TIME: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
-	export const QT_AUTO_SCREEN_SCALE_FACTOR: string;
 	export const JOURNAL_STREAM: string;
-	export const GTK3_MODULES: string;
 	export const XDG_DATA_DIRS: string;
 	export const GDK_BACKEND: string;
 	export const npm_config_noproxy: string;
@@ -192,7 +189,6 @@ declare module '$env/dynamic/private' {
 		GSETTINGS_SCHEMA_DIR: string;
 		LOGNAME: string;
 		XDG_SESSION_DESKTOP: string;
-		QT_QPA_PLATFORMTHEME: string;
 		XDG_SESSION_TYPE: string;
 		CONDA_PREFIX: string;
 		npm_config_init_module: string;
@@ -202,10 +198,8 @@ declare module '$env/dynamic/private' {
 		XAUTHORITY: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		GJS_DEBUG_TOPICS: string;
-		WINDOWPATH: string;
 		MOTD_SHOWN: string;
 		GDM_LANG: string;
-		GTK2_RC_FILES: string;
 		HOME: string;
 		USERNAME: string;
 		LANG: string;
@@ -214,6 +208,7 @@ declare module '$env/dynamic/private' {
 		XDG_CURRENT_DESKTOP: string;
 		npm_package_version: string;
 		MEMORY_PRESSURE_WATCH: string;
+		WAYLAND_DISPLAY: string;
 		CONDA_PROMPT_MODIFIER: string;
 		GIT_ASKPASS: string;
 		INVOCATION_ID: string;
@@ -223,6 +218,7 @@ declare module '$env/dynamic/private' {
 		npm_lifecycle_script: string;
 		GJS_DEBUG_OUTPUT: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+		GNOME_SETUP_DISPLAY: string;
 		npm_config_npm_version: string;
 		XDG_SESSION_CLASS: string;
 		LC_IDENTIFICATION: string;
@@ -250,9 +246,7 @@ declare module '$env/dynamic/private' {
 		npm_package_json: string;
 		LC_TIME: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
-		QT_AUTO_SCREEN_SCALE_FACTOR: string;
 		JOURNAL_STREAM: string;
-		GTK3_MODULES: string;
 		XDG_DATA_DIRS: string;
 		GDK_BACKEND: string;
 		npm_config_noproxy: string;

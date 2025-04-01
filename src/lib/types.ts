@@ -61,4 +61,7 @@ export interface loginFormResponse extends Omit<loginFormData, 'password'> {
     error:boolean,
     message: string,
 }
-
+export type UserWithoutPassword = {
+    id: string;
+    username: string; 
+};

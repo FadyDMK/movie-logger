@@ -136,6 +136,7 @@
         justify-content: space-around;
         align-items: center;
         transition: all 0.2s ease-out;
+        margin-bottom: 0;
     }
     .navbar-clicked {
         position: fixed;
