@@ -29,4 +29,36 @@ interface Rating {
     Source: string;
     Value: string;
 }
+export interface registerFormData {
+    weakPassword: boolean,
+    usernameUsed: boolean,
+    error: boolean,
+    message: string,
+    username: FormDataEntryValue,
+    password: FormDataEntryValue,
+    [key: string]: any
+
+}
+
+export interface loginFormData {
+    username: FormDataEntryValue,
+    password: FormDataEntryValue,
+    error: boolean,
+    message: string,
+    [key: string]: any
+}
+
+export interface User {
+    _id: string,
+    username: string,
+    password: string,
+    userAuthToken: string,
+    log:[]
+}
+
+
+export interface loginFormResponse extends Omit<loginFormData, 'password'> {
+    error:boolean,
+    message: string,
+}
 

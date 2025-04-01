@@ -11,19 +11,19 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  logs     Log[]
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String   @id @default(cuid())
+  username      String?  @unique
+  password      String
+  userAuthToken String   @unique
+  logs          Log[]    
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model Media {
-  imdbID	String	@id @unique
-  title		String
-  Logs Log[]
+  imdbID String  @id @unique
+  title  String
+  logs   Log[]   // Relationship to logs
 }
 
 model Log {
@@ -32,7 +32,15 @@ model Log {
   userId    String
   media     Media    @relation(fields: [mediaId], references: [imdbID])
   mediaId   String
-  rating    Int
+  rating    Int?     
+  status    Status   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Status {
+  PLAN_TO_WATCH
+  WATCHING
+  COMPLETED
+  DROPPED
 }

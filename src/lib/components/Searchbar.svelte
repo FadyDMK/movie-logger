@@ -81,7 +81,7 @@
         padding: 10px;
         font-size: 1.2rem;
         border: 1px solid var(--accent-color);
-        background-color: white;
+        background-color: rgb(225, 214, 231);
         color: black;
         border-radius: 5px;
         overflow-y: scroll;

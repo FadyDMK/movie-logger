@@ -89,8 +89,8 @@
         justify-content: space-between;
     }
     .container {
-        width: 320px;
-        height: 550px;
+        width: 300px;
+        height: 500px;
         background: linear-gradient(45deg, #452d4d, var(--background-color), #111, var(--primary-color));
         border-radius: 15px;
         padding: 10px 20px 30px;
@@ -107,6 +107,7 @@
 
     h3 {
         margin: 10px 0 15px;
+        font-size: 1em;
         font-size: 1em;
     }
 

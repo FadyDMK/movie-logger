@@ -10,6 +10,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"module": "NodeNext",
+		"allowImportingTsExtensions": true,
 		"moduleResolution": "NodeNext",
 		"baseUrl": ".",
 		"paths":{
