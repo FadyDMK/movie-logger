@@ -1,7 +1,5 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-
-    import { onMount } from "svelte";
     import { Icon } from "svelte-hero-icons";
     import { InformationCircle, Plus } from "svelte-hero-icons";
     export let data;
@@ -26,7 +24,7 @@
                     height="20"
                     width="20"
                     viewBox="0 -10 511.98685 511"
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                 >
                     <path
                         d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968

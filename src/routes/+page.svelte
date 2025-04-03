@@ -3,11 +3,9 @@
     import { user, isAuthed } from "$lib/stores/stores.ts";
     import type { Movie } from "$lib/types.js";
     import { onMount } from "svelte";
-   
 
     export let data;
 
-    
     $: isAuthed.set(data.isAuthed);
 
     let movies: Movie[] = [];
@@ -29,19 +27,29 @@
 
     // Fetch movies from the API
     async function fetchMovies() {
+        try {
+            const fetchedMovies = await Promise.all(
+                moviesToShowcase.map(async (id) => {
+                    try {
+                        const response = await fetch(
+                            `https://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
+                        );
 
-        movies = await Promise.all(
-            moviesToShowcase.map(async (id) => {
-                const response = await fetch(
-                    `http://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`
-                );
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const data = await response.json();
-                return data;
-            })
-        );
+                        if (!response.ok)
+                            throw new Error("Failed to fetch movie");
+
+                        return await response.json();
+                    } catch (error) {
+                        console.error(`Error fetching movie ${id}:`, error);
+                        return null;
+                    }
+                }),
+            );
+
+            movies = fetchedMovies.filter((movie) => movie !== null);
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
     }
     onMount(() => {
         fetchMovies();
@@ -58,7 +66,7 @@
     </a>
 
     <div class="wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
                 fill="#0e0013"
                 fill-opacity="1"
@@ -70,14 +78,16 @@
 
 <!-- Movies Section -->
 <div class="movies-section">
-    <h2>Dev's recommendation</h2>
-    <div class="movies">
-        {#each movies as movie}
-            <MovieCard
-                data={movie}
-            />
-        {/each}
-    </div>
+    <h2>Dev's Recommendation</h2>
+    {#if movies.length > 0}
+        <div class="movies">
+            {#each movies as movie}
+                <MovieCard data={movie} />
+            {/each}
+        </div>
+    {:else}
+        <p>Loading movies...</p>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -106,15 +116,16 @@
         animation: gradientBG 8s ease infinite;
         position: relative;
         overflow: hidden;
-        color: white; /* Ensures text is readable on gradient */
+        color: white;
     }
 
     .wave {
         position: absolute;
-        bottom: 0;
+        bottom: -5px;
         left: 0;
         width: 100%;
-        height: 160px;
+        height: 170px;
+        z-index: 10;
     }
 
     .btn {
@@ -137,6 +148,8 @@
         position: relative;
         background-color: #0e0013;
         padding-top: 100px;
+        margin-top: 10px; 
+        z-index: 5;
     }
     .movies-section h2 {
         text-align: center;
@@ -144,7 +157,7 @@
         font-size: 2rem;
         margin-bottom: 20px;
     }
-    .movies{
+    .movies {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
