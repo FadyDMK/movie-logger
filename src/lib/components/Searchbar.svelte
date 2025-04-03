@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { beforeNavigate } from "$app/navigation";
     import type { Movie } from "$lib/types.js";
     import MovieCard from "./MovieCard.svelte";
     import MoviesSearch from "./MoviesSearch.svelte";
@@ -36,9 +37,13 @@
     }
 
     function reset() {
+        search = "";
         movies = [];
         searching = false;
     }
+    beforeNavigate(() => {
+        reset();
+    });
 </script>
 
 <div class="container">
@@ -63,19 +68,38 @@
     .container {
         display: flex;
         flex-direction: column;
-        padding-bottom: 0;
         width: 600px;
-        height: 800px;
-    }
-    .result {
-        height: 100%;
-        overflow-y: scroll;
-        display: none;
+        height: auto;
     }
 
-    #search:focus + .result {
+    .result {
+        display: block;
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        border-radius: 5px;
+        z-index: 10;
+        overflow-y: scroll;
+    }
+    .container:focus + .result {
         display: block;
     }
+    .result:hover {
+        display: block;
+    }
+
+    .result a {
+        text-decoration: none;
+        color: var(--primary-color);
+        padding: 10px;
+        display: block;
+    }
+
+    .result a:hover {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
     #search {
         width: 100%;
         padding: 10px;

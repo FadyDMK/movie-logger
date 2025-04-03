@@ -46,12 +46,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 30px;
+        border-radius: 50px;
+        gap: 5px;
+        background-color: var(--secondary-color);
+        width: 50%;
+        background: linear-gradient(-45deg, #5a0077, #c147e9, #e5b8f4, #3d087b);
+        background-size: 400% 400%;
     }
     .title {
         color: #fff;
         font-size: 2em;
-        margin-bottom: 1em;
+        margin-bottom: 0.5em;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
     }
     div {
         color: #fff;
@@ -62,7 +74,8 @@
     }
     small {
         padding-left: 0.5em;
-        color: #ff0000;
+        color: #f36565;
+        font-weight: 600;
     }
     button {
         margin-top: 1em;
@@ -94,5 +107,8 @@
         background-color: rgb(234, 212, 236);
         border-radius: 5px;
         color: black;
+        padding: 0.5em;
+        width: 100%;
+        border: 1px solid #ccc;
     }
 </style>

@@ -1,13 +1,21 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
+
+   
     import { onMount } from "svelte";
     import { Icon } from "svelte-hero-icons";
     import { InformationCircle, Plus } from "svelte-hero-icons";
     export let data;
+
+    const handleClick = () => {
+        // Handle the click event here
+        goto(`/movie/${data.imdbID}`);
+    };
 </script>
 
 <div class="container">
     <div class="img" style="background-image: url({data.Poster})">
-        <button><Icon src={Plus} size="30" solid /></button>
+        <button on:click={handleClick}><Icon src={Plus} size="30" solid /></button>
     </div>
     <h2>{data.Title}</h2>
     <div class="middle">
@@ -45,12 +53,12 @@
 <style lang="scss">
     .container {
         width: 300px;
-        background: linear-gradient(45deg, #452d4d, #111, var(--primary-color));
+        background: linear-gradient(45deg, #452d4d, #32283a, var(--primary-color));
         border-radius: 15px;
         padding: 15px;
         box-shadow: 0 0 5px var(--secondary-color);
         transition: transform 0.3s ease-in-out;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .container:hover {
@@ -64,6 +72,7 @@
         background-size: cover;
         background-position: center;
         position: relative;
+        z-index: 2;
     }
 
     .img button {
@@ -81,6 +90,7 @@
 
     .img button:hover {
         background-color: var(--secondary-color);
+       
     }
 
     h2 {
@@ -104,6 +114,7 @@
     .info-wrapper {
         position: relative;
         cursor: pointer;
+        
     }
 
     .info-box {
@@ -116,11 +127,13 @@
         border-radius: 8px;
         box-shadow: 0 0 5px #aaa;
         width: 250px;
+        z-index: 3;
     }
 
     .info-wrapper:hover .info-box {
         display: block;
     }
+
 
     .plot {
         font-size: 0.9em;

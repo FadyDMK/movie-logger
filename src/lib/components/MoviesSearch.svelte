@@ -1,20 +1,35 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import type { Movie } from "$lib/types.js";
 
     export let movies: Movie[] = [];
+
+    const handleClick = (imdbID: string) => {
+        console.log("Movie clicked:", imdbID);
+        goto(`/movie/${imdbID}`);
+    };
 </script>
 
 <div class="container">
     {#if movies.length > 0}
         {#each movies as movie}
-            <div class="movie-line">
+            <button
+                class="movie-line"
+                role="button"
+                tabindex="0"
+                on:click={() => {
+                    console.log("hi");
+                    handleClick(movie.imdbID);
+                }}
+                on:keypress={() => handleClick(movie.imdbID)}
+            >
                 <img src={movie.Poster} alt={movie.Title} />
                 <div class="info">
                     <h2>{movie.Title}</h2>
                     <h3>{movie.Year}</h3>
                     <h3>{movie.Type}</h3>
                 </div>
-            </div>
+            </button>
         {/each}
     {:else}
         <div class="no-movies">No movies found</div>
@@ -48,6 +63,7 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
+        align-items: start;
         color: var(--text-color);
         font-weight: 700;
     }

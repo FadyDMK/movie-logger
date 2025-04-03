@@ -20,17 +20,10 @@ model User {
   updatedAt     DateTime @updatedAt
 }
 
-model Media {
-  imdbID String  @id @unique
-  title  String
-  logs   Log[]   // Relationship to logs
-}
-
 model Log {
   id        String   @id @default(cuid())
   user      User     @relation(fields: [userId], references: [id])
   userId    String
-  media     Media    @relation(fields: [mediaId], references: [imdbID])
   mediaId   String
   rating    Int?     
   status    Status   

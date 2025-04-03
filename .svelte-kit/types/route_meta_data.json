@@ -19,6 +19,10 @@
 	"/log": [
 		"src/routes/+layout.server.ts"
 	],
+	"/movie/[imdbID]": [
+		"src/routes/movie/[imdbID]/+page.ts",
+		"src/routes/+layout.server.ts"
+	],
 	"/profile": [
 		"src/routes/+layout.server.ts"
 	]

@@ -2,7 +2,7 @@ import { writable, type Writable } from "svelte/store";
 
 type UserWithoutPassword = {
   id: string;
-  name: string;
+  username: string;
   email: string;
 };
 
