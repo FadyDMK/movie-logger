@@ -1,21 +1,8 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
-    // import { user } from "$lib/stores/stores.ts";
     import type { loginFormData } from "$lib/types.ts";
     export let form: loginFormData;
-    export let data;
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        if (data?.clearUser) {
-            // Perform any necessary actions with the data
-            console.log("Data from +page.server.ts:", data);
-        }
-    });
-    // $:clearUser = data?.clearUser;
-    // $:{
-    //     if(clearUser) user.set(undefined);
-    // }
+   
 </script>
 
 <div class="container">
@@ -106,9 +93,6 @@
         align-items: center;
         justify-content: space-between;
         gap: 0.5em;
-    }
-    .fieldError {
-        outline: 2px solid #ff0000;
     }
     input {
         background-color: rgb(234, 212, 236);

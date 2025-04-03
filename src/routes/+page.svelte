@@ -42,7 +42,6 @@
                 return data;
             })
         );
-        console.log(movies);
     }
     onMount(() => {
         fetchMovies();

@@ -53,7 +53,6 @@ export const actions = {
                 const { password, ...userAttemptingLoginWithoutPassword } = userAttemptingLogin;
                 const authToken = jwt.sign({ authedUser: userAttemptingLoginWithoutPassword }, SECRET_KEY,
                     { expiresIn: '24h' });
-                console.log("Generated authToken:", authToken);
                 cookies.set('authToken', authToken, { httpOnly: true, maxAge: 60 * 60 * 24, sameSite: 'strict', path: '/' });
                 isAuthed.set(true);
                 return redirect(302, '/');

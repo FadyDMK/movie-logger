@@ -13,9 +13,11 @@ export const load = async ({ locals }: Parameters<PageServerLoad>[0]) => {
     // Fetch logs for the logged-in user
     const logs = await getUserLog(user.id);
 
+    
     return {
         user,
         logs,
     };
+
 };
 

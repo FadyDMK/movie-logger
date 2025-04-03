@@ -6,7 +6,6 @@
     export let data: { isAuthed: boolean }; // Data returned from the server
 
 	$: isAuthed.set(data.isAuthed);
-	console.log('Client-side isAuthed:', $isAuthed);
 
 </script>
 

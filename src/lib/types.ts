@@ -1,3 +1,5 @@
+import type { Status } from "@prisma/client";
+
 export interface Movie {
     Title: string;
     Year: string;
@@ -48,6 +50,13 @@ export interface loginFormData {
     [key: string]: any
 }
 
+export interface updateFormData {
+    imdbID: FormDataEntryValue,
+    rating: FormDataEntryValue,
+    status: FormDataEntryValue, //movie, userId, date
+    [key: string]: any
+}
+
 export interface logMovieData {
     movie: Movie,
     userId: string,
@@ -75,4 +84,21 @@ export interface loginFormResponse extends Omit<loginFormData, 'password'> {
 export type UserWithoutPassword = {
     id: string;
     username: string; 
+};
+
+export type MovieLog = {
+    id: string;
+    userId: string;
+    imdbID: string;
+    rating: number;
+    status: string;
+}
+export type MediaLog = {
+    id: string;
+    userId: string;
+    mediaId: string;
+    rating: number | null;
+    status: Status;
+    createdAt: Date;
+    updatedAt: Date;
 };

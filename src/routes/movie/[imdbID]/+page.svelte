@@ -2,11 +2,11 @@
     import LogForm from "$lib/components/LogForm.svelte";
     import type { logMovieData } from "$lib/types.ts";
     import { Trigger, Modal, Content } from "sv-popup";
-    import { onMount } from "svelte";
 
     export let data;
     let movie = data.movie;
     export let form: logMovieData;
+
 
     // Watch for changes in the `data.movie.imdbID` parameter
     $: if (data.movie.imdbID) {
@@ -44,7 +44,7 @@
             <div class="actions">
                 <Modal basic small>
                     <Content class="modal-content">
-                        <LogForm {movie} {form} />
+                        <LogForm {movie} {form}/>
                     </Content>
                     <Trigger>
                         <button>📖 Log</button>
@@ -58,12 +58,6 @@
 {/if}
 
 <style lang="scss">
-    .modal-content {
-        background-color: var(--secondary-color);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
     .movie-container {
         display: flex;
         flex-direction: row;

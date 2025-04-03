@@ -30,12 +30,6 @@
                 linkText: 'Log'
             },
             {
-                text: 'profile',
-                url: '/profile',
-                displayInNav: $isAuthed,
-                linkText: 'Profile'
-            },
-            {
                 url: '/notfound',
                 displayInNav: false,
                 linkText: ''

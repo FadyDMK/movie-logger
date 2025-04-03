@@ -81,24 +81,7 @@
         z-index: 10;
         overflow-y: scroll;
     }
-    .container:focus + .result {
-        display: block;
-    }
-    .result:hover {
-        display: block;
-    }
-
-    .result a {
-        text-decoration: none;
-        color: var(--primary-color);
-        padding: 10px;
-        display: block;
-    }
-
-    .result a:hover {
-        background-color: var(--accent-color);
-        color: white;
-    }
+    
 
     #search {
         width: 100%;

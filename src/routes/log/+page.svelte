@@ -1,16 +1,18 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import type { Movie } from "$lib/types.ts";
+    import UpdateLog from "$lib/components/UpdateLog.svelte";
+    import type { MediaLog, Movie, updateFormData } from "$lib/types.ts";
+    import { Content, Modal, Trigger } from "sv-popup";
     import { onMount } from "svelte";
     let movies: Movie[] = [];
-    let logs: Array<{ mediaId: string; rating: number; status: string }> = [];
+    let logs: MediaLog[] = [];
     let moviesToShowcase: Array<string> = [];
-
-    export let data;
+    import type { logMovieData } from "$lib/types.ts";
+    export let form:logMovieData;
+    export let data:logMovieData;
 
     if (data.logs) {
         logs = Array.isArray(data.logs) ? data.logs : [];
-        console.log(logs)
     }
     if (logs === undefined || !Array.isArray(logs)) {
         console.error("No logs found or logs is not an array");
@@ -27,10 +29,16 @@
             },
             body: JSON.stringify({ userId }),
         });
+        if (!response.ok) {
+            const error = await response.json();
+            console.error("Failed to delete log", error);
+            return;
+        }
+        console.log("Log deleted successfully");
         moviesToShowcase = moviesToShowcase.filter((movieId) => movieId !== id);
         logs = logs.filter((log) => log.mediaId !== id);
         movies = movies.filter((movie) => movie.imdbID !== id);
-        goto("/log");
+        window.location.href = "/log";
     }
 
     async function fetchMovies() {
@@ -66,8 +74,18 @@
                     <p class="status">{logs[index].status}</p>
                 </div>
                 <div class="actions">
-
-                    <button>Update</button>
+                    <Modal basic small>
+                        <Content class="modal-content">
+                            <UpdateLog
+                                form={form}
+                                movie={{ ...logs[index], imdbID: movies[index]?.imdbID, rating: logs[index].rating ?? 0 }}
+                            />
+                        </Content>
+                        <Trigger>
+                            <button>Update</button>
+                        </Trigger>
+                    </Modal>
+                   
                     <button on:click={() => deleteLog(logs[index].id,logs[index].userId)}>Delete</button>
                 </div>
             </div>

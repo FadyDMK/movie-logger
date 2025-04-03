@@ -1,6 +1,6 @@
 // @ts-nocheck
 import type { Actions } from "@sveltejs/kit";
-import { fail } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 import { checkMovieAndUser, logMovie } from "$lib/utils/backendUtils.ts";
 import { Status } from "@prisma/client";
 
@@ -11,13 +11,13 @@ export const actions = {
         const status_string = formData.get("status")?.toString()?.toUpperCase();
         const rating = parseInt(formData.get("rating")?.toString() || "0", 10);
 
-        // Validate user authentication
+        //validate user authentication
         const user = locals.authedUser;
         if (!user) {
             return fail(401, { error: true, message: "Unauthorized" });
         }
 
-        // Validate form data
+        //validate form data
         if (!imdbID || !status_string || isNaN(rating)) {
             return fail(400, { error: true, message: "Invalid form data" });
         }
@@ -44,12 +44,14 @@ export const actions = {
         }
 
 
-        // Log the movie
+        //log the movie
         try {
             const logEntry = await logMovie(user.id, imdbID, rating, status);
             if (!logEntry) {
                 return fail(500, { error: true, message: "Failed to log the movie" });
             }
+            
+
             return { success: true, message: "Movie logged successfully" };
         } catch (error) {
             console.error("Error logging movie:", error);

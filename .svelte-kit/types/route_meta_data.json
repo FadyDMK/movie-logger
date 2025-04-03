@@ -27,8 +27,5 @@
 		"src/routes/movie/[imdbID]/+page.ts",
 		"src/routes/movie/[imdbID]/+page.server.ts",
 		"src/routes/+layout.server.ts"
-	],
-	"/profile": [
-		"src/routes/+layout.server.ts"
 	]
 }

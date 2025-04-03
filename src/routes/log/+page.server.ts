@@ -12,9 +12,11 @@ export const load: PageServerLoad = async ({ locals }) => {
     // Fetch logs for the logged-in user
     const logs = await getUserLog(user.id);
 
+    
     return {
         user,
         logs,
     };
+
 };
 

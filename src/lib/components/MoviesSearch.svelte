@@ -5,7 +5,6 @@
     export let movies: Movie[] = [];
 
     const handleClick = (imdbID: string) => {
-        console.log("Movie clicked:", imdbID);
         goto(`/movie/${imdbID}`);
     };
 </script>
@@ -15,10 +14,8 @@
         {#each movies as movie}
             <button
                 class="movie-line"
-                role="button"
                 tabindex="0"
                 on:click={() => {
-                    console.log("hi");
                     handleClick(movie.imdbID);
                 }}
                 on:keypress={() => handleClick(movie.imdbID)}

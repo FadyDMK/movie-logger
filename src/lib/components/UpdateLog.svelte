@@ -1,16 +1,40 @@
 <script lang="ts">
-    import { enhance } from "$app/forms";
-    import { goto } from "$app/navigation";
-    import type { logMovieData, Movie } from "$lib/types.ts";
+    import type { logMovieData, MovieLog } from "$lib/types.ts";
+   
     export let form: logMovieData;
-    export let movie: Movie;
-    
-    let status = "watching";
-    let rating = "";
+    export let movie:MovieLog;
+    let status = movie.status;
+    let rating = movie.rating;
+
+    async function updateLog(event: Event) {
+        event.preventDefault();
+
+        const response = await fetch(`/api/log/${movie.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                status,
+                rating,
+                imdbId: movie.imdbID,
+                userId: movie.userId,
+            }),
+        });
+        if (!response.ok) {
+            const error = await response.json();
+            console.error("Failed to update log", error);
+            return;
+        }
+
+        console.log("Log updated successfully");
+        window.location.href = "/log";
+        
+    }
 </script>
 
 <div class="container">
-    <form method="POST" action="?/log" use:enhance on:submit={() => (goto("/"))}>
+    <form on:submit={updateLog}>
         <h2>Log Your Movie</h2>
         
         <div class="form-item">
@@ -42,8 +66,9 @@
         </div>
 
         <input type="hidden" name="imdbID" value={movie.imdbID} />
+        <input type="hidden" name="_method" value="PUT" />
 
-        <button type="submit" class="submit-button">Log Movie</button>
+        <button type="submit" class="submit-button">Update</button>
     </form>
 </div>
 
