@@ -1,0 +1,299 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "name": "internal",
+    "src": ".svelte-kit/generated/server/internal.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js"
+    ]
+  },
+  "_MovieCard.l4HYDMnt.css": {
+    "file": "_app/immutable/assets/MovieCard.l4HYDMnt.css",
+    "src": "_MovieCard.l4HYDMnt.css"
+  },
+  "_Trigger.CH3El9hf.css": {
+    "file": "_app/immutable/assets/Trigger.CH3El9hf.css",
+    "src": "_Trigger.CH3El9hf.css"
+  },
+  "_Trigger.js": {
+    "file": "chunks/Trigger.js",
+    "name": "Trigger",
+    "imports": [
+      "_index.js",
+      "_equality.js",
+      "_index3.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Trigger.CH3El9hf.css"
+    ]
+  },
+  "_backendUtils.js": {
+    "file": "chunks/backendUtils.js",
+    "name": "backendUtils"
+  },
+  "_client.js": {
+    "file": "chunks/client.js",
+    "name": "client",
+    "imports": [
+      "_exports.js",
+      "_equality.js"
+    ]
+  },
+  "_equality.js": {
+    "file": "chunks/equality.js",
+    "name": "equality"
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js",
+    "name": "exports"
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "name": "index",
+    "imports": [
+      "_equality.js"
+    ]
+  },
+  "_index2.js": {
+    "file": "chunks/index2.js",
+    "name": "index"
+  },
+  "_index3.js": {
+    "file": "chunks/index3.js",
+    "name": "index",
+    "imports": [
+      "_equality.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "name": "internal",
+    "imports": [
+      "_index.js",
+      "_equality.js"
+    ],
+    "dynamicImports": [
+      "src/hooks.server.ts"
+    ]
+  },
+  "_private.js": {
+    "file": "chunks/private.js",
+    "name": "private"
+  },
+  "_stores.js": {
+    "file": "chunks/stores.js",
+    "name": "stores",
+    "imports": [
+      "_index3.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "name": "index",
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_internal.js",
+      "_index2.js",
+      "_exports.js",
+      "_index3.js"
+    ]
+  },
+  "src/hooks.server.ts": {
+    "file": "chunks/hooks.server.js",
+    "name": "hooks.server",
+    "src": "src/hooks.server.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_private.js",
+      "_backendUtils.js"
+    ]
+  },
+  "src/logo.png": {
+    "file": "_app/immutable/assets/logo.CmU-GB9Y.png",
+    "src": "src/logo.png"
+  },
+  "src/routes/+error.svelte": {
+    "file": "entries/pages/_error.svelte.js",
+    "name": "entries/pages/_error.svelte",
+    "src": "src/routes/+error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_error.MYZ2Hkq-.css"
+    ]
+  },
+  "src/routes/+layout.server.ts": {
+    "file": "entries/pages/_layout.server.ts.js",
+    "name": "entries/pages/_layout.server.ts",
+    "src": "src/routes/+layout.server.ts",
+    "isEntry": true
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "name": "entries/pages/_layout.svelte",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js",
+      "_equality.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.BHweCTCA.css",
+      "_app/immutable/assets/MovieCard.l4HYDMnt.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/logo.CmU-GB9Y.png"
+    ]
+  },
+  "src/routes/+page.server.ts": {
+    "file": "entries/pages/_page.server.ts.js",
+    "name": "entries/pages/_page.server.ts",
+    "src": "src/routes/+page.server.ts",
+    "isEntry": true
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "name": "entries/pages/_page.svelte",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js",
+      "_equality.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.DI5T5QPT.css",
+      "_app/immutable/assets/MovieCard.l4HYDMnt.css"
+    ]
+  },
+  "src/routes/api/log/[id]/+server.ts": {
+    "file": "entries/endpoints/api/log/_id_/_server.ts.js",
+    "name": "entries/endpoints/api/log/_id_/_server.ts",
+    "src": "src/routes/api/log/[id]/+server.ts",
+    "isEntry": true,
+    "imports": [
+      "_backendUtils.js",
+      "_index2.js"
+    ]
+  },
+  "src/routes/auth/login/+page.server.ts": {
+    "file": "entries/pages/auth/login/_page.server.ts.js",
+    "name": "entries/pages/auth/login/_page.server.ts",
+    "src": "src/routes/auth/login/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_backendUtils.js",
+      "_private.js",
+      "_stores.js"
+    ]
+  },
+  "src/routes/auth/login/+page.svelte": {
+    "file": "entries/pages/auth/login/_page.svelte.js",
+    "name": "entries/pages/auth/login/_page.svelte",
+    "src": "src/routes/auth/login/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.Br9U2vH2.css"
+    ]
+  },
+  "src/routes/auth/logout/+page.server.ts": {
+    "file": "entries/pages/auth/logout/_page.server.ts.js",
+    "name": "entries/pages/auth/logout/_page.server.ts",
+    "src": "src/routes/auth/logout/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_stores.js",
+      "_index2.js"
+    ]
+  },
+  "src/routes/auth/register/+page.server.ts": {
+    "file": "entries/pages/auth/register/_page.server.ts.js",
+    "name": "entries/pages/auth/register/_page.server.ts",
+    "src": "src/routes/auth/register/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_backendUtils.js"
+    ]
+  },
+  "src/routes/auth/register/+page.svelte": {
+    "file": "entries/pages/auth/register/_page.svelte.js",
+    "name": "entries/pages/auth/register/_page.svelte",
+    "src": "src/routes/auth/register/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.DVdD1ZDG.css"
+    ]
+  },
+  "src/routes/log/+page.server.ts": {
+    "file": "entries/pages/log/_page.server.ts.js",
+    "name": "entries/pages/log/_page.server.ts",
+    "src": "src/routes/log/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_backendUtils.js",
+      "_index2.js"
+    ]
+  },
+  "src/routes/log/+page.svelte": {
+    "file": "entries/pages/log/_page.svelte.js",
+    "name": "entries/pages/log/_page.svelte",
+    "src": "src/routes/log/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js",
+      "_Trigger.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.Cu6JqwmY.css"
+    ]
+  },
+  "src/routes/movie/[imdbID]/+page.server.ts": {
+    "file": "entries/pages/movie/_imdbID_/_page.server.ts.js",
+    "name": "entries/pages/movie/_imdbID_/_page.server.ts",
+    "src": "src/routes/movie/[imdbID]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_backendUtils.js"
+    ]
+  },
+  "src/routes/movie/[imdbID]/+page.svelte": {
+    "file": "entries/pages/movie/_imdbID_/_page.svelte.js",
+    "name": "entries/pages/movie/_imdbID_/_page.svelte",
+    "src": "src/routes/movie/[imdbID]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js",
+      "_Trigger.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CpAiVXgi.css"
+    ]
+  },
+  "src/routes/movie/[imdbID]/+page.ts": {
+    "file": "entries/pages/movie/_imdbID_/_page.ts.js",
+    "name": "entries/pages/movie/_imdbID_/_page.ts",
+    "src": "src/routes/movie/[imdbID]/+page.ts",
+    "isEntry": true
+  }
+}
