@@ -8,6 +8,7 @@ public/build/
 
 # Production
 build/
+/functions
 dist/
 structure.txt
 # Logs

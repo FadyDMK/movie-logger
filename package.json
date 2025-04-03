@@ -59,9 +59,9 @@
 		"svelte"
 	],
 	"dependencies": {
-		"@sveltejs/kit": "^2.16.0",
 		"@auth/sveltekit": "^1.8.0",
 		"@prisma/client": "^6.5.0",
+		"@sveltejs/kit": "^2.16.0",
 		"bcrypt": "^5.1.1",
 		"color-thief-browser": "^2.0.2",
 		"colorthief": "^2.6.0",
