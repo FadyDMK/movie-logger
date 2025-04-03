@@ -1,5 +1,6 @@
 import { db } from "$lib/db/database.ts";
 import type { loginFormData, registerFormData } from "$lib/types.ts";
+import type { Status } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { randomUUID } from "crypto";
 
@@ -15,11 +16,10 @@ export const checkUser = async (username: string) => {
         return true;
     }
     return false;
-    
+
 };
 
 export const registerUser = async (user: registerFormData) => {
-    console.log(user.password.toString());
     const hashedPassword = await bcrypt.hash(user.password.toString(), 12);
     return await db.user.create({
         data: {
@@ -52,4 +52,58 @@ export const findUserByUsernameWithPassword = async (username: string) => {
     return await db.user.findUnique({
         where: { username: username },
     });
+}
+
+export const logMovie = async (userId: string, movieId: string, rating: number, status: Status) => {
+
+    const user = await db.user.findUnique({
+        where: { id: userId },
+    });
+    if (!user) {
+        return false;
+    }
+    const log = await db.log.create({
+        data: {
+            userId: userId,
+            mediaId: movieId,
+            rating: rating,
+            status: status,
+        },
+    });
+    return log;
+}
+
+
+export const checkMovieAndUser = async (userId: string, movieId: string ) => {
+    const user = await db.user.findUnique({
+        where: { id: userId },
+    });
+    if (!user) {
+        return false;
+    }
+    const log = await db.log.findFirst({
+        where: {
+            userId: userId,
+            mediaId: movieId,
+        },
+    });
+    if (!log) {
+        return false;
+    }
+    return log;
+}
+
+export const getUserLog = async (userId: string) => {
+    const user = await db.user.findUnique({
+        where: { id: userId },
+    });
+    if (!user) {
+        return false;
+    }
+    const log = await db.log.findMany({
+        where: {
+            userId: userId,
+        },
+    });
+    return log;
 }

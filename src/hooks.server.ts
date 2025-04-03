@@ -7,22 +7,22 @@ import jwt from "jsonwebtoken";
 export async function handle({ event, resolve }) {
     const authToken = event.cookies.get('authToken');
     try {
-        if (!authToken) event.locals.authedUser = undefined;
-
-        const claims = authToken ? jwt.verify(authToken, SECRET_KEY) as jwt.JwtPayload : undefined;
-
-        if (!claims) event.locals.authedUser = undefined;
-
-        if (authToken && claims) {
-            const fullUser = claims?.authedUser ? await findUserByUsernameWithPassword(claims.authedUser.username) : undefined;
-            const {password, ...userMinusPassword} = fullUser ?? {};
-            event.locals.authedUser = userMinusPassword;
+        if (!authToken) {
+            event.locals.authedUser = undefined;
+        } else {
+            const claims = jwt.verify(authToken, SECRET_KEY) as jwt.JwtPayload;
+            if (claims?.authedUser) {
+                const fullUser = await findUserByUsernameWithPassword(claims.authedUser.username);
+                const { password, ...userWithoutPassword } = fullUser ?? {};
+                event.locals.authedUser = userWithoutPassword;
+            } else {
+                event.locals.authedUser = undefined;
+            }
         }
-
-    }
-    finally {
-        const response = await resolve(event);
-        return response;
+    } catch (error) {
+        console.error("Error verifying authToken:", error);
+        event.locals.authedUser = undefined;
     }
 
+    return resolve(event);
 }

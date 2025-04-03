@@ -68,6 +68,7 @@
 		"jsonwebtoken": "^9.0.2",
 		"pg": "^8.14.0",
 		"sass-embedded": "^1.86.0",
+		"sv-popup": "^0.5.3",
 		"svelte-hero-icons": "^5.2.0",
 		"svelte-routing": "^2.13.0",
 		"tailwind": "^4.0.0"

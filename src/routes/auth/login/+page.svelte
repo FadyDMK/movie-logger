@@ -4,7 +4,14 @@
     import type { loginFormData } from "$lib/types.ts";
     export let form: loginFormData;
     export let data;
+    import { onMount } from "svelte";
 
+    onMount(() => {
+        if (data?.clearUser) {
+            // Perform any necessary actions with the data
+            console.log("Data from +page.server.ts:", data);
+        }
+    });
     // $:clearUser = data?.clearUser;
     // $:{
     //     if(clearUser) user.set(undefined);

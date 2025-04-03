@@ -48,6 +48,17 @@ export interface loginFormData {
     [key: string]: any
 }
 
+export interface logMovieData {
+    movie: Movie,
+    userId: string,
+    date: string,
+    rating: number,
+    status: string,
+    [key: string]: any
+}
+
+
+
 export interface User {
     _id: string,
     username: string,

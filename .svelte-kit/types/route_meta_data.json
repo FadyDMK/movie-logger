@@ -4,6 +4,9 @@
 		"src/routes/+layout.server.ts",
 		"src/routes/+layout.server.ts"
 	],
+	"/api/log/[id]": [
+		"src/routes/api/log/[id]/+server.ts"
+	],
 	"/auth/login": [
 		"src/routes/auth/login/+page.server.ts",
 		"src/routes/+layout.server.ts"
@@ -17,10 +20,12 @@
 		"src/routes/+layout.server.ts"
 	],
 	"/log": [
+		"src/routes/log/+page.server.ts",
 		"src/routes/+layout.server.ts"
 	],
 	"/movie/[imdbID]": [
 		"src/routes/movie/[imdbID]/+page.ts",
+		"src/routes/movie/[imdbID]/+page.server.ts",
 		"src/routes/+layout.server.ts"
 	],
 	"/profile": [

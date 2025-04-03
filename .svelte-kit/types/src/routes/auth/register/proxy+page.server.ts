@@ -55,6 +55,6 @@ export const actions = {
             return fail(503,SignUpResponse);
         }
 
-        redirect(303,'/login');
+        redirect(303,'/auth/login');
     }
 };;null as any as Actions;

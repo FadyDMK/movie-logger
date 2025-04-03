@@ -19,8 +19,8 @@ export const dictionary = {
 		"/auth/login": [~3],
 		"/auth/logout": [~4],
 		"/auth/register": [~5],
-		"/log": [6],
-		"/movie/[imdbID]": [7],
+		"/log": [~6],
+		"/movie/[imdbID]": [~7],
 		"/profile": [8]
 	};
 

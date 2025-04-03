@@ -1,6 +1,12 @@
 <script lang="ts">
+    import LogForm from "$lib/components/LogForm.svelte";
+    import type { logMovieData } from "$lib/types.ts";
+    import { Trigger, Modal, Content } from "sv-popup";
+    import { onMount } from "svelte";
+
     export let data;
     let movie = data.movie;
+    export let form: logMovieData;
 
     // Watch for changes in the `data.movie.imdbID` parameter
     $: if (data.movie.imdbID) {
@@ -9,7 +15,9 @@
 
     async function fetchMovie(imdbID: string) {
         const apiKey = import.meta.env.VITE_OMDB_API_KEY;
-        const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`);
+        const response = await fetch(
+            `https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`,
+        );
         if (!response.ok) {
             console.error("Failed to fetch movie data");
             return;
@@ -21,7 +29,7 @@
 {#if movie}
     <div class="movie-container">
         <img src={movie.Poster} alt={movie.Title} class="movie-poster" />
-        
+
         <div class="movie-details">
             <h1>{movie.Title} <span>({movie.Year})</span></h1>
             <p class="genre"><strong>Genre:</strong> {movie.Genre}</p>
@@ -34,7 +42,14 @@
             <p class="plot">{movie.Plot}</p>
 
             <div class="actions">
-                <button>📖 Log</button>
+                <Modal basic small>
+                    <Content class="modal-content">
+                        <LogForm {movie} {form} />
+                    </Content>
+                    <Trigger>
+                        <button>📖 Log</button>
+                    </Trigger>
+                </Modal>
             </div>
         </div>
     </div>
@@ -43,6 +58,12 @@
 {/if}
 
 <style lang="scss">
+    .modal-content {
+        background-color: var(--secondary-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
     .movie-container {
         display: flex;
         flex-direction: row;
