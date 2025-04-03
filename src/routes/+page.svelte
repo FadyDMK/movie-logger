@@ -109,7 +109,7 @@
         align-items: center;
         justify-content: center;
         padding-top: 150px;
-        padding-bottom: 150px;
+        padding-bottom: 200px;
         font-size: 2rem;
         background: linear-gradient(-45deg, #5a0077, #c147e9, #e5b8f4, #3d087b);
         background-size: 400% 400%;
@@ -124,7 +124,7 @@
         bottom: -5px;
         left: 0;
         width: 100%;
-        height: 170px;
+        height: 250px;
         z-index: 10;
     }
 
@@ -148,14 +148,14 @@
         position: relative;
         background-color: #0e0013;
         padding-top: 100px;
-        margin-top: 10px; 
+        margin-top: 20px; 
         z-index: 5;
     }
     .movies-section h2 {
         text-align: center;
         color: white;
         font-size: 2rem;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     .movies {
         display: flex;
