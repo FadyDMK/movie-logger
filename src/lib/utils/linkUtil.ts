@@ -1,9 +1,6 @@
 import logo from '/src/logo.png';
 
-
-
-
-export const getNavbarData = (isAuthed:boolean) => {
+export const getNavbarData = (isAuthed: boolean) => {
     return {
         logo: true,
         logoSrc: logo,

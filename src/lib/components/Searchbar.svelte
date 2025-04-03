@@ -1,7 +1,6 @@
 <script lang="ts">
     import { beforeNavigate } from "$app/navigation";
     import type { Movie } from "$lib/types.js";
-    import MovieCard from "./MovieCard.svelte";
     import MoviesSearch from "./MoviesSearch.svelte";
 
     let search = "";
@@ -81,7 +80,6 @@
         z-index: 10;
         overflow-y: scroll;
     }
-    
 
     #search {
         width: 100%;

@@ -45,7 +45,7 @@
         movies = await Promise.all(
             moviesToShowcase.map(async (id) => {
                 const response = await fetch(
-                    `http://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
+                    `https://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
                 );
                 if (!response.ok) throw new Error("Failed to fetch movies");
                 return await response.json();

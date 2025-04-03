@@ -1,10 +1,8 @@
 import { db } from '$lib/db/database.ts';
 import { checkMovieAndUser } from '$lib/utils/backendUtils.ts';
 import { Status } from '@prisma/client';
-import { fail } from '@sveltejs/kit';
 import { json } from '@sveltejs/kit';
-import { getRequest } from '@sveltejs/kit/node';
-import { stat } from 'fs';
+
 
 
 export const DELETE = async ({ params, locals, request }) => {

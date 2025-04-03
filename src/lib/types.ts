@@ -73,17 +73,17 @@ export interface User {
     username: string,
     password: string,
     userAuthToken: string,
-    log:[]
+    log: []
 }
 
 
 export interface loginFormResponse extends Omit<loginFormData, 'password'> {
-    error:boolean,
+    error: boolean,
     message: string,
 }
 export type UserWithoutPassword = {
     id: string;
-    username: string; 
+    username: string;
 };
 
 export type MovieLog = {

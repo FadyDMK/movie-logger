@@ -1,7 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
 
-   
     import { onMount } from "svelte";
     import { Icon } from "svelte-hero-icons";
     import { InformationCircle, Plus } from "svelte-hero-icons";
@@ -15,13 +14,20 @@
 
 <div class="container">
     <div class="img" style="background-image: url({data.Poster})">
-        <button on:click={handleClick}><Icon src={Plus} size="30" solid /></button>
+        <button on:click={handleClick}
+            ><Icon src={Plus} size="30" solid /></button
+        >
     </div>
     <h2>{data.Title}</h2>
     <div class="middle">
         <div class="rating">
             {#each [2.5, 5, 7.5, 10] as threshold}
-                <svg height="20" width="20" viewBox="0 -10 511.98685 511" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    height="20"
+                    width="20"
+                    viewBox="0 -10 511.98685 511"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <path
                         d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968
                         -58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438
@@ -31,7 +37,9 @@
                         4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593
                         c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031
                         -28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
-                        fill={data.imdbRating >= threshold ? "#ffc107" : "#727276"}
+                        fill={data.imdbRating >= threshold
+                            ? "#ffc107"
+                            : "#727276"}
                     />
                 </svg>
             {/each}
@@ -53,7 +61,12 @@
 <style lang="scss">
     .container {
         width: 300px;
-        background: linear-gradient(45deg, #452d4d, #32283a, var(--primary-color));
+        background: linear-gradient(
+            45deg,
+            #452d4d,
+            #32283a,
+            var(--primary-color)
+        );
         border-radius: 15px;
         padding: 15px;
         box-shadow: 0 0 5px var(--secondary-color);
@@ -90,7 +103,6 @@
 
     .img button:hover {
         background-color: var(--secondary-color);
-       
     }
 
     h2 {
@@ -114,7 +126,6 @@
     .info-wrapper {
         position: relative;
         cursor: pointer;
-        
     }
 
     .info-box {
@@ -133,7 +144,6 @@
     .info-wrapper:hover .info-box {
         display: block;
     }
-
 
     .plot {
         font-size: 0.9em;

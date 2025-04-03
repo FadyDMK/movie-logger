@@ -1,6 +1,6 @@
 <script lang="ts">
     import Searchbar from "./Searchbar.svelte";
-    import logo from '/src/logo.png';
+    import logo from "/src/logo.png";
     import { isAuthed } from "$lib/stores/stores.ts";
     import { goto } from "$app/navigation";
 
@@ -9,43 +9,40 @@
         await goto("/auth/logout");
     }
 
-
-
-    $: data={
+    $: data = {
         logo: true,
         logoSrc: logo,
         logoLink: true,
-        linkUrl: '/',
-        optionalLinkText: '',
-        altText: 'logo',
+        linkUrl: "/",
+        optionalLinkText: "",
+        altText: "logo",
         links: [
             {
-                url: '/',
+                url: "/",
                 displayInNav: true,
-                linkText: 'Home'
+                linkText: "Home",
             },
             {
-                url: '/log',
+                url: "/log",
                 displayInNav: $isAuthed,
-                linkText: 'Log'
+                linkText: "Log",
             },
             {
-                url: '/notfound',
+                url: "/notfound",
                 displayInNav: false,
-                linkText: ''
+                linkText: "",
             },
             {
-                url: '/auth/login',
+                url: "/auth/login",
                 displayInNav: !$isAuthed,
-                linkText: 'Log In'
+                linkText: "Log In",
             },
             {
-                url: '/auth/register',
+                url: "/auth/register",
                 displayInNav: !$isAuthed,
-                linkText: 'Sign Up'
-            }
-
-        ]
+                linkText: "Sign Up",
+            },
+        ],
     };
 
     console.log("isAuthed:", $isAuthed);
@@ -109,7 +106,10 @@
         {/if}
     {/each}
     {#if $isAuthed}
-        <button class={clicked ? "navbar-item-clicked" : "navbar-item"} on:click={handleLogout}>Log Out</button>
+        <button
+            class={clicked ? "navbar-item-clicked" : "navbar-item"}
+            on:click={handleLogout}>Log Out</button
+        >
     {/if}
 </nav>
 
@@ -172,9 +172,6 @@
         position: relative;
         max-width: 400px;
         width: 100%;
-        
-  
-
     }
     .navbar-item-clicked:hover {
         color: #fff;

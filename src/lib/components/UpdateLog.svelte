@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { logMovieData, MovieLog } from "$lib/types.ts";
-   
+
     export let form: logMovieData;
-    export let movie:MovieLog;
+    export let movie: MovieLog;
     let status = movie.status;
     let rating = movie.rating;
 
@@ -29,14 +29,13 @@
 
         console.log("Log updated successfully");
         window.location.href = "/log";
-        
     }
 </script>
 
 <div class="container">
     <form on:submit={updateLog}>
         <h2>Log Your Movie</h2>
-        
+
         <div class="form-item">
             <label for="status">Status</label>
             <select id="status" name="status" bind:value={status} required>
@@ -57,7 +56,7 @@
                 max="10"
                 placeholder="Rate from 1 to 10"
                 bind:value={rating}
-                class="{form?.error ? 'field-error' : ''}"
+                class={form?.error ? "field-error" : ""}
                 required
             />
             {#if form?.error}
@@ -106,7 +105,8 @@
         font-weight: bold;
     }
 
-    select, input {
+    select,
+    input {
         width: 100%;
         padding: 10px;
         font-size: 1rem;
@@ -118,7 +118,8 @@
         transition: all 0.3s;
     }
 
-    select:focus, input:focus {
+    select:focus,
+    input:focus {
         border: 2px solid white;
     }
 
@@ -150,8 +151,14 @@
     }
 
     @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
 </style>

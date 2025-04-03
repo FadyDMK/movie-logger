@@ -74,7 +74,7 @@ export const logMovie = async (userId: string, movieId: string, rating: number, 
 }
 
 
-export const checkMovieAndUser = async (userId: string, movieId: string ) => {
+export const checkMovieAndUser = async (userId: string, movieId: string) => {
     const user = await db.user.findUnique({
         where: { id: userId },
     });
