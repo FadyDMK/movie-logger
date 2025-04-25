@@ -6,9 +6,14 @@ node_modules/
 # Svelte build
 public/build/
 
+.netlify/
+.sveltekit/
+.svelte-kit/
+
+
 # Production
 build/
-/functions
+functions/
 dist/
 structure.txt
 # Logs
